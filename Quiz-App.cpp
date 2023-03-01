@@ -15,6 +15,7 @@ int quiz();
 int checker(char, char , char, char ,char, char,char, char , char, char ,char, char,char, char , char, char ,char, char,char, char , char, char ,char, char);
 bool printresult(int);
 bool teachercheck();
+void end(int);
 void pgreetings();
 void fgreetings();
 // Variables P is portion and q is question, t is total and g is gained score
@@ -43,13 +44,31 @@ int main()
 				break;
 			}
 			else{
+				teacher:
 				flag2 = teachercheck();
 				if(flag2 == 1){
 					system("cls");
 					continue;
 				}
 				else{
-					break;
+					system("cls");
+					cout<<"Invalid Key"<<endl;
+					cout<<"Press R key to try again and Q for quit => ";
+					char dummy = getche();
+					system("cls");
+					if(dummy == 'R' || dummy == 'r'){
+						goto teacher;
+					}
+					else if(dummy == 'Q' || dummy == 'q'){
+						i = 525;
+						break;
+					}
+					else{
+						system("cls");
+						cout<<"Error! Restart Program"<<endl;
+						system("pause");
+						goto teacher;
+					}
 				}
 			}
 		}
@@ -62,16 +81,10 @@ int main()
 			continue;
 		}
 	}
+	system("cls");
+	end(gscore);
+	cout<<" --: END :-- "<<endl;
 	return 0;
-}
-// Function for Header
-void header(){
-	cout<<""<<endl;
-	cout<<""<<endl;
-	cout<<""<<endl;
-	cout<<""<<endl;
-	cout<<""<<endl;
-	cout<<""<<endl;
 }
 // Function to get Roll number (Connected with check function with)
 bool rollno()
@@ -160,6 +173,8 @@ void instructions()
 	cout << "2) The correct option cause the increment of 1 in gained scored and there will be no negative marking." << endl;
 	cout << "3) For moving to previous question click P and for moving to next question click N and for skip click S." << endl;
 	cout << "4) You have only 12 minutes to solve the quiz." << endl;
+	cout << "5) You have to achieve at least 50% marks to crack this quiz."<<endl; 
+	cout << "6) In order to give another attempt you have to contact your teacher for his/her verification and permission."<<endl;
 	cout << endl
 		<< "Press enter key to proceed next: ";
 	char dummy = getche();
@@ -901,6 +916,7 @@ bool printresult(int score){
 }
 // Function for Teacher Authorization
 bool teachercheck(){
+	system("cls");
 	char a,b,c,d;
 	cout<<"  --: Teacher Verification :--  "<<endl<<endl;
 	cout<<"Enter Your Four Digit Code for Teacher Authorization: ";
@@ -915,11 +931,30 @@ bool teachercheck(){
 		return false;
 	}
 }
+// End Function
+void end(int a){
+	if(a>=13){
+		pgreetings();
+	}
+	else{
+		fgreetings();
+	}
+}
 // Greeting message (For Passed ones)
 void pgreetings(){
 	cout<<" --: Greetings Message :--"<<endl<<endl;
+	cout<<"We congrats you on your success. We hope you learn some new things from it. We appreciate your spirit of learning new things. Best of Luck for your future :)"<<endl;
+	cout<<"Thank you for using our services"<<endl;
+	cout<<endl<<"Press enter key to finish =>";
+	char dummy = getche();
+	system("cls");
 }
 // Greeting message (For Fail ones)
 void fgreetings(){
 	cout<<" --: Greetings Message :--"<<endl<<endl;
+	cout<<"We regret to inform you that your marks is not enough to pass quiz. We appreciate your spirit of of learning new things. Do more work and try again :)"<<endl;
+	cout<<"Thank you for using our services"<<endl;
+	cout<<endl<<"Press enter key to finish =>";
+	char dummy = getche();
+	system("cls");
 }
