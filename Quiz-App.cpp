@@ -33,6 +33,7 @@ HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 // Main Function
 int main()
 {
+	system("cls");
 	bool flag1, flag2;
 	for (int i = 1; i <= 511; i)
 	{
@@ -63,7 +64,9 @@ int main()
 				else
 				{
 					system("cls");
+					SetConsoleTextAttribute(hConsole, 4);
 					cout << "Invalid Key" << endl;
+					SetConsoleTextAttribute(hConsole, 3);
 					cout << "Press R key to try again and Q for quit => ";
 					char dummy = getche();
 					system("cls");
@@ -79,7 +82,9 @@ int main()
 					else
 					{
 						system("cls");
+						SetConsoleTextAttribute(hConsole, 4);
 						cout << "Error! Restart Program" << endl;
+						SetConsoleTextAttribute(hConsole, 3);
 						system("pause");
 						goto teacher;
 					}
@@ -103,6 +108,8 @@ int main()
 	header5();
 	cout << endl;
 	system("pause");
+	SetConsoleTextAttribute(hConsole, 15);
+	system("cls");
 	return 0;
 }
 // Function to get Roll number (Connected with check function with)
@@ -1102,14 +1109,16 @@ bool teachercheck()
 {
 	system("cls");
 	char a, b, c, d;
-	cout << "  --: Teacher Verification :--  " << endl
-		 << endl;
+	SetConsoleTextAttribute(hConsole, 9);
+	cout << "  --: Teacher Verification :--  " << endl<< endl;
+	SetConsoleTextAttribute(hConsole, 10);
 	cout << "Enter Your Four Digit Code for Teacher Authorization: ";
+	SetConsoleTextAttribute(hConsole, 9);
 	a = getche();
 	b = getche();
 	c = getche();
 	d = getche();
-	if (a == '1' && b == '2' && c == '3' && d == '4')
+	if (a == '5' && b == '5' && c == '2' && d == '0')
 	{
 		return true;
 	}
@@ -1133,24 +1142,30 @@ void end(int a)
 // Greeting message (For Passed ones)
 void pgreetings()
 {
+	SetConsoleTextAttribute(hConsole, 2);
 	cout << " --: Greetings Message :--" << endl
 		 << endl;
+	SetConsoleTextAttribute(hConsole, 7);
 	cout << "We congrats you on your success. We hope you learn some new things from it. We appreciate your spirit of learning new things. Best of Luck for your future :)" << endl;
 	cout << "Thank you for using our services" << endl;
-	cout << endl
-		 << "Press enter key to finish =>";
+	cout << endl;
+	SetConsoleTextAttribute(hConsole, 2);
+	cout<< "Press enter key to finish =>";
 	char dummy = getche();
 	system("cls");
 }
 // Greeting message (For Fail ones)
 void fgreetings()
 {
+	SetConsoleTextAttribute(hConsole, 2);
 	cout << " --: Greetings Message :--" << endl
 		 << endl;
+	SetConsoleTextAttribute(hConsole, 7);
 	cout << "We regret to inform you that your marks is not enough to pass quiz. We appreciate your spirit of of learning new things. Do more work and try again :)" << endl;
 	cout << "Thank you for using our services" << endl;
-	cout << endl
-		 << "Press enter key to finish =>";
+	cout << endl;
+	SetConsoleTextAttribute(hConsole, 2);
+	cout<< "Press enter key to finish =>";
 	char dummy = getche();
 	system("cls");
 }
@@ -1193,8 +1208,15 @@ void header4()
 // header (End)
 void header5()
 {
+	SetConsoleTextAttribute(hConsole, 9);
 	cout << "                       ____|             |                        " << endl;
 	cout << "               _)      __|    __ \\    _` |     _)                " << endl;
 	cout << " _____| _____|         |      |   |  (   |       _____| _____|    " << endl;
 	cout << "               _)     _____| _|  _| \\__,_|     _)                " << endl;
 }
+// ----The End----
+// Created By Mahreen Farooq (2022 CS-511)
+// Created By Mirza Sufiyan Ahmad (2022 CS-513)
+// Created By Maha Butt (2022 CS-527)
+// Created by M.Abdullah (2022 CS-525)
+// Best of Luck PF Mates
