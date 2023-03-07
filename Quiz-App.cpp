@@ -6,7 +6,6 @@
 #include <string>
 using namespace std;
 // Prototyping
-void header();
 bool rollno();
 bool check(char, char, char);
 void data(string, string, int, int);
@@ -28,7 +27,7 @@ char p1q1, p1q2, p1q3, p1q4, p1q5, p1q6,
 	p2q1, p2q2, p2q3, p2q4, p2q5, p2q6,
 	p3q1, p3q2, p3q3, p3q4, p3q5, p3q6,
 	p4q1, p4q2, p4q3, p4q4, p4q5, p4q6;
-int tscore = 24, gscore, time = 60;
+int tscore = 24, gscore;
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 // Main Function
 int main()
