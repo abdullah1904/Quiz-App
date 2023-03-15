@@ -44,7 +44,7 @@ int main()
 			gscore = quiz();
 		result:
 			system("cls");
-			bool flag1 = printresult(gscore);
+			flag1 = printresult(gscore);
 			system("cls");
 			if (flag1 == 0)
 			{
